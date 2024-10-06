@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gasto Calórico y Alimentación</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Aquí puedes enlazar tu CSS -->
+</head>
+<body>
+    <!-- Encabezado -->
+    <header>
+        <h1>Gasto Calórico y Alimentación</h1>
+        <p>Descubre cómo las calorías influyen en tu cuerpo, la actividad física y la alimentación.</p>
+    </header>
+
+    <!-- Sección 1: Introducción al Gasto Calórico -->
+    <section id="gasto-calorico">
+        <h2>¿Qué es el Gasto Calórico?</h2>
+        <p>El gasto calórico es la cantidad de energía que tu cuerpo quema para realizar sus funciones diarias. Este gasto incluye el metabolismo basal, la termogénesis inducida por los alimentos y la actividad física.</p>
+        <ul>
+            <li><strong>Metabolismo basal:</strong> Energía que tu cuerpo usa en reposo.</li>
+            <li><strong>Termogénesis:</strong> Energía que se utiliza para digerir los alimentos.</li>
+            <li><strong>Actividad física:</strong> Energía que se gasta al moverse y hacer ejercicio.</li>
+        </ul>
+    </section>
+
+    <!-- Sección 2: ¿Cómo Funcionan las Calorías en el Cuerpo? -->
+    <section id="funcion-calorias">
+        <h2>¿Cómo Funcionan las Calorías en el Cuerpo?</h2>
+        <p>Las calorías son una medida de energía que tu cuerpo obtiene de los alimentos. Dependiendo del tipo de alimento, las calorías pueden provenir de:</p>
+        <ul>
+            <li><strong>Carbohidratos:</strong> 4 calorías por gramo.</li>
+            <li><strong>Proteínas:</strong> 4 calorías por gramo.</li>
+            <li><strong>Grasas:</strong> 9 calorías por gramo.</li>
+        </ul>
+        <p>Cuando consumes más calorías de las que gastas, el exceso se almacena como grasa en el cuerpo. Si gastas más calorías de las que consumes, el cuerpo utiliza las reservas de grasa como energía.</p>
+    </section>
+
+    <!-- Sección 3: Influencia de la Alimentación en los Músculos y la Actividad Física -->
+    <section id="alimentacion-musculos">
+        <h2>La Alimentación y su Impacto en los Músculos y la Actividad Física</h2>
+        <p>La alimentación juega un papel crucial en la formación de músculo y la energía que tienes durante el ejercicio. Aquí hay una mirada más cercana a cómo los diferentes macronutrientes influyen en tu cuerpo:</p>
+        <ul>
+            <li><strong>Proteínas:</strong> Ayudan a reparar y construir el tejido muscular.</li>
+            <li><strong>Carbohidratos:</strong> Proveen la energía necesaria para entrenamientos intensos.</li>
+            <li><strong>Grasas saludables:</strong> Esenciales para el buen funcionamiento hormonal y la energía en ejercicios de larga duración.</li>
+        </ul>
+        <p>Una dieta equilibrada que incluya estos nutrientes es clave para mantener un rendimiento óptimo en cualquier actividad física.</p>
+    </section>
+
+    <!-- Sección 4: Calculadora de Gasto Calórico -->
+    <section id="calculadora">
+        <h2>Calculadora de Gasto Calórico</h2>
+        <p>Ingresa tus datos para calcular tu gasto calórico diario:</p>
+        <form id="formulario-calculadora">
+            <label for="peso">Peso (kg):</label>
+            <input type="number" id="peso" name="peso" required><br><br>
+
+            <label for="altura">Altura (cm):</label>
+            <input type="number" id="altura" name="altura" required><br><br>
+
+            <label for="edad">Edad:</label>
+            <input type="number" id="edad" name="edad" required><br><br>
+
+            <label for="genero">Género:</label>
+            <select id="genero" name="genero" required>
+                <option value="hombre">Hombre</option>
+                <option value="mujer">Mujer</option>
+            </select><br><br>
+
+            <label for="actividad">Nivel de actividad:</label>
+            <select id="actividad" name="actividad" required>
+                <option value="sedentario">Sedentario</option>
+                <option value="ligero">Ligero</option>
+                <option value="moderado">Moderado</option>
+                <option value="activo">Activo</option>
+                <option value="muy-activo">Muy Activo</option>
+            </select><br><br>
+
+            <button type="button" onclick="calcularGastoCalorico()">Calcular</button>
+        </form>
+
+        <p id="resultado-calorico"></p>
+    </section>
+
+    <!-- Sección 5: Consejos para un Balance Calórico Saludable -->
+    <section id="consejos">
+        <h2>Consejos para Mantener un Balance Calórico Saludable</h2>
+        <p>Para lograr tus objetivos de salud, es importante mantener un balance entre las calorías que consumes y las que gastas. Aquí algunos consejos:</p>
+        <ul>
+            <li>Controla las porciones y evita comer en exceso.</li>
+            <li>Incorpora alimentos ricos en proteínas en cada comida para favorecer el desarrollo muscular.</li>
+            <li>Realiza actividad física regularmente para aumentar tu gasto calórico.</li>
+        </ul>
+    </section>
+
+    <!-- Script para la calculadora de gasto calórico -->
+    <script>
+        function calcularGastoCalorico() {
+            const peso = document.getElementById('peso').value;
+            const altura = document.getElementById('altura').value;
+            const edad = document.getElementById('edad').value;
+            const genero = document.getElementById('genero').value;
+            const actividad = document.getElementById('actividad').value;
+
+            let tasaMetabolicaBasal;
+
+            if (genero === "hombre") {
+                tasaMetabolicaBasal = 88.36 + (13.4 * peso) + (4.8 * altura) - (5.7 * edad);
+            } else {
+                tasaMetabolicaBasal = 447.6 + (9.2 * peso) + (3.1 * altura) - (4.3 * edad);
+            }
+
+            // Ajuste por nivel de actividad
+            let factorActividad;
+            switch (actividad) {
+                case "sedentario":
+                    factorActividad = 1.2;
+                    break;
+                case "ligero":
+                    factorActividad = 1.375;
+                    break;
+                case "moderado":
+                    factorActividad = 1.55;
+                    break;
+                case "activo":
+                    factorActividad = 1.725;
+                    break;
+                case "muy-activo":
+                    factorActividad = 1.9;
+                    break;
+            }
+
+            const gastoCaloricoTotal = tasaMetabolicaBasal * factorActividad;
+            document.getElementById('resultado-calorico').innerText = `Tu gasto calórico diario estimado es: ${gastoCaloricoTotal.toFixed(2)} calorías.`;
+        }
+    </script>
+</body>
+</html>
+<section id="alimentos">
+    <h2>Alimentos recomendados según tu objetivo</h2>
+
+    <!-- Lista de alimentos para subir de peso -->
+    <div class="lista-alimentos">
+        <h3>Para subir de peso</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Alimento</th>
+                    <th>Calorías</th>
+                    <th>Proteínas (g)</th>
+                    <th>Grasas (g)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Mantequilla de maní</td>
+                    <td>588</td>
+                    <td>25</td>
+                    <td>50</td>
+                </tr>
+                <tr>
+                    <td>Aguacate</td>
+                    <td>240</td>
+                    <td>3</td>
+                    <td>22</td>
+                </tr>
+                <tr>
+                    <td>Pechuga de pollo</td>
+                    <td>165</td>
+                    <td>31</td>
+                    <td>3.6</td>
+                </tr>
+                <tr>
+                    <td>Arroz integral</td>
+                    <td>216</td>
+                    <td>5</td>
+                    <td>1.8</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Lista de alimentos para mantener el peso -->
+    <div class="lista-alimentos">
+        <h3>Para mantener el peso</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Alimento</th>
+                    <th>Calorías</th>
+                    <th>Proteínas (g)</th>
+                    <th>Grasas (g)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Pescado (salmón)</td>
+                    <td>208</td>
+                    <td>20</td>
+                    <td>13</td>
+                </tr>
+                <tr>
+                    <td>Yogur griego</td>
+                    <td>100</td>
+                    <td>10</td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <td>Avena</td>
+                    <td>154</td>
+                    <td>6</td>
+                    <td>3</td>
+                </tr>
+                <tr>
+                    <td>Batata</td>
+                    <td>86</td>
+                    <td>1.6</td>
+                    <td>0.1</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Lista de alimentos para bajar de peso -->
+    <div class="lista-alimentos">
+        <h3>Para bajar de peso</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Alimento</th>
+                    <th>Calorías</th>
+                    <th>Proteínas (g)</th>
+                    <th>Grasas (g)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Brócoli</td>
+                    <td>55</td>
+                    <td>3.7</td>
+                    <td>0.6</td>
+                </tr>
+                <tr>
+                    <td>Pechuga de pavo</td>
+                    <td>135</td>
+                    <td>30</td>
+                    <td>0.8</td>
+                </tr>
+                <tr>
+                    <td>Claras de huevo</td>
+                    <td>17</td>
+                    <td>3.6</td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <td>Zanahorias</td>
+                    <td>41</td>
+                    <td>0.9</td>
+                    <td>0.2</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>

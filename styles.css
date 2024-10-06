@@ -1,0 +1,201 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f7f8fc;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Header Styles */
+header {
+    background-color: #6c63ff;
+    color: white;
+    padding: 40px 0;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+header p {
+    font-size: 1.2rem;
+}
+
+/* Section Styles */
+section {
+    padding: 40px 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+section h2 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+    position: relative;
+}
+
+section h2::after {
+    content: "";
+    width: 60px;
+    height: 4px;
+    background-color: #6c63ff;
+    display: block;
+    margin: 10px auto;
+}
+
+section p, section ul {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    text-align: justify;
+}
+
+/* List Styles */
+ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+ul li {
+    background: #e0e0ff;
+    margin: 10px 0;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Form Styles (Calculadora) */
+#formulario-calculadora {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 30px auto;
+}
+
+#formulario-calculadora label {
+    font-size: 1.1rem;
+    display: block;
+    margin-bottom: 10px;
+}
+
+#formulario-calculadora input, #formulario-calculadora select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: 2px solid #6c63ff;
+    font-size: 1rem;
+}
+
+#formulario-calculadora button {
+    background-color: #6c63ff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#formulario-calculadora button:hover {
+    background-color: #5546d6;
+}
+
+/* Resultado de la calculadora */
+#resultado-calorico {
+    font-size: 1.3rem;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #e0ffe0;
+    border: 2px solid #28a745;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: none; /* Se muestra cuando haya un resultado */
+}
+
+/* Consejos Styles */
+#consejos ul li {
+    background-color: #ffefd0;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-left: 4px solid #ffc107;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#consejos ul li strong {
+    color: #ff5722;
+}
+
+/* Footer (opcional si lo deseas agregar) */
+footer {
+    text-align: center;
+    padding: 20px 0;
+    background-color: #333;
+    color: white;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+}
+/* Estilos para la sección de alimentos */
+#alimentos {
+    padding: 40px 20px;
+    background-color: #f4f4f9;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+#alimentos h2 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    text-align: center;
+    color: #6c63ff;
+}
+
+.lista-alimentos {
+    margin-bottom: 40px;
+}
+
+.lista-alimentos h3 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.lista-alimentos table {
+    width: 100%;
+    border-collapse: collapse;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.lista-alimentos table th, .lista-alimentos table td {
+    padding: 15px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+.lista-alimentos table th {
+    background-color: #6c63ff;
+    color: white;
+}
+
+.lista-alimentos table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
